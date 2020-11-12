@@ -1,5 +1,5 @@
 {% set name = "pythia8" %}
-{% set version = "8.244" %}
+{% set version = "8.245" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: http://home.thep.lu.se/~torbjorn/{{ name }}/pythia{{ version|replace('.', '') }}.tgz
-  sha256: e34880f999daf19cdd893a187123927ba77d1bf851e30f6ea9ec89591f4c92ca
+  sha256: 23c5e8c9d9f6b242c40663a9c7de3f36a4c23a9ded1e289a21b5d81eeb97ac15
   patches:
     - patches/fix-dlsym-definition.patch
 
 build:
-  number: 2
-  skip: True  # [win]
+  number: 0
+  skip: true  # [win]
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=root
     - pythia8 >={{ version }},<{{ version.split('.')[0] }}.{{ (version.split('.')[1][0]|int) + 1 }}00.0a0
@@ -38,16 +38,16 @@ about:
   home: http://home.thep.lu.se/Pythia/
   license: GPL-2.0-only
   license_file: COPYING
-  summary: 'A tool for the generation of events in high-energy collisions'
+  summary: A tool for the generation of events in high-energy collisions
   description: |
-      The Pythia program is a standard tool for the generation of events in
-      high-energy collisions, comprising a coherent set of physics models for
-      the evolution from a few-body hard process to a complex multiparticle
-      final state. It contains a library of hard processes, models for initial-
-      and final-state parton showers, matching and merging methods between hard
-      processes and parton showers, multiparton interactions, beam remnants,
-      string fragmentation and particle decays. It also has a set of utilities
-      and several interfaces to external programs.
+    The Pythia program is a standard tool for the generation of events in
+    high-energy collisions, comprising a coherent set of physics models for
+    the evolution from a few-body hard process to a complex multiparticle
+    final state. It contains a library of hard processes, models for initial-
+    and final-state parton showers, matching and merging methods between hard
+    processes and parton showers, multiparton interactions, beam remnants,
+    string fragmentation and particle decays. It also has a set of utilities
+    and several interfaces to external programs.
 
 extra:
   recipe-maintainers:

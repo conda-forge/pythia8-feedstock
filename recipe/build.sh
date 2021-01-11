@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -ex
 
 if [[ "${target_platform}" == linux-* ]]; then
     PYTHIA_ARCH=LINUX

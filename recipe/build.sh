@@ -25,7 +25,11 @@ fi
     --with-python-include="$(python -c "from sysconfig import get_paths; info = get_paths(); print(info['include'])")" \
     --with-python-bin="${PREFIX}/bin/" \
     --arch="${PYTHIA_ARCH}" \
-    --prefix="${PREFIX}"
+    --prefix="${PREFIX}" \
+    --with-lhapdf6-bin="${PREFIX}/bin/" \
+    --with-lhapdf6-include="${PREFIX}/include/" \
+    --with-gzip-include="${PREFIX}/include/" \
+    --with-mg5mes
 
 make install -j${CPU_COUNT}
 

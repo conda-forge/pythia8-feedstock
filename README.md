@@ -342,5 +342,6 @@ Feedstock Maintainers
 
 * [@chrisburr](https://github.com/chrisburr/)
 * [@henryiii](https://github.com/henryiii/)
+* [@matthewfeickert](https://github.com/matthewfeickert/)
 * [@ph-ilten](https://github.com/ph-ilten/)
 

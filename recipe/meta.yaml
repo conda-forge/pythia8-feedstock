@@ -32,7 +32,7 @@ requirements:
     - python
     - libxcrypt  # [linux and py<39]
     - pybind11
-    - lhapdf >=6.2
+    - lhapdf
     # zlib controlled through https://github.com/conda-forge/conda-forge-pinning-feedstock/
     - zlib
   run:

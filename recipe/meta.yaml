@@ -65,6 +65,8 @@ about:
     processes and parton showers, multiparton interactions, beam remnants,
     string fragmentation and particle decays. It also has a set of utilities
     and several interfaces to external programs.
+  doc_url: https://pythia.org/
+  dev_url: https://gitlab.com/Pythia8/releases
 
 extra:
   recipe-maintainers:

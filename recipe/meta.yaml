@@ -41,8 +41,15 @@ requirements:
     - python
 
 test:
+  requires:
+    - lhapdf >=6.2
+    - zlib
+    - make
+    - cxx-compiler
   imports:
     - pythia8
+  source_files:
+    - examples
 
 about:
   home: https://pythia.org/

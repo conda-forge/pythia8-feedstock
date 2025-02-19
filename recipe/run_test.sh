@@ -132,7 +132,7 @@ cd examples/
 make clean
 
 "$CXX" main101.cc -o main101 $(pythia8-config --cxxflags --ldflags)
-./main101 &> main101_output.txt
+./main101 &> main101_output.txt || ./main101
 
 echo -e "\n# Test example main161 that uses the FastJet library extension"
 make clean
@@ -140,7 +140,7 @@ make clean
 lhapdf install cteq6l1 &> /dev/null
 
 "$CXX" main161.cc -o main161 $CXXFLAGS $LDFLAGS -lpythia8 -lfastjet
-./main161 main161.cmnd w+_production_lhc_0.lhe histout161.dat &> main161_output.txt
+./main161 main161.cmnd w+_production_lhc_0.lhe histout161.dat &> main161_output.txt || ./main161 main161.cmnd w+_production_lhc_0.lhe histout161.dat
 
 echo -e "\n# Test example main201 that uses the LHAPDF library extension"
 make clean
@@ -152,13 +152,13 @@ lhapdf install NNPDF31_nnlo_as_0118_luxqed &> /dev/null
 sed -i "s|../share|$(readlink -f $PREFIX/share)|g" main201.cc
 
 "$CXX" main201.cc -o main201 $(pythia8-config --cxxflags --ldflags)
-./main201 &> main201_output.txt
+./main201 &> main201_output.txt || ./main201
 
 echo -e "\n# Test example main212 that uses the FastJet library extension"
 make clean
 
 "$CXX" main212.cc -o main212 $CXXFLAGS $LDFLAGS -lpythia8 -lfastjet
-./main212 &> main212_output.txt
+./main212 &> main212_output.txt || ./main212
 
 echo -e "\n# Test example that use the HepMC2 and HepMC3 extensions"
 "$CXX" main131.cc -o main131 $CXXFLAGS $LDFLAGS -lpythia8 -lHepMC3

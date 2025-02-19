@@ -2,59 +2,36 @@
 
 set -x
 
-#
 echo -e "\n# Check installed directory structure"
-echo "# test -d ${PREFIX}/bin"
 test -d "${PREFIX}/bin"
-echo "# test -d ${PREFIX}/include"
 test -d "${PREFIX}/include"
-echo "# test -d ${PREFIX}/include/Pythia8"
 test -d "${PREFIX}/include/Pythia8"
-echo "# test -d ${PREFIX}/lib"
 test -d "${PREFIX}/lib"
-echo "# test -d ${PREFIX}/share"
 test -d "${PREFIX}/share"
-echo "# test -d ${PREFIX}/share/Pythia8"
 test -d "${PREFIX}/share/Pythia8"
-echo "# test -d ${PREFIX}/share/Pythia8/examples"
 test -d "${PREFIX}/share/Pythia8/examples"
-echo "# test -d ${PREFIX}/share/Pythia8/xmldoc"
 test -d "${PREFIX}/share/Pythia8/xmldoc"
 
-echo "# test ! -d ${PREFIX}/share/Pythia8/htmldoc"
 test ! -d "${PREFIX}/share/Pythia8/htmldoc"
-echo "# test ! -d ${PREFIX}/share/Pythia8/pdfdoc"
 test ! -d "${PREFIX}/share/Pythia8/pdfdoc"
 
 echo -e "\n# Check installed files"
-echo "# test -f ${PREFIX}/bin/pythia8-config"
 test -f "${PREFIX}/bin/pythia8-config"
-echo "# test -f ${PREFIX}/include/Pythia8/Pythia.h"
 test -f "${PREFIX}/include/Pythia8/Pythia.h"
-if [[ "${target_platform}" == linux-* ]]; then
-    echo "# test -f ${PREFIX}/lib/libpythia8.so"
-    test -f "${PREFIX}/lib/libpythia8.so"
-else
-    # macOS
-    echo "# test -f ${PREFIX}/lib/libpythia8.dylib"
-    test -f "${PREFIX}/lib/libpythia8.dylib"
-fi
-echo "# test -f ${PREFIX}/lib/libpythia8lhapdf6.so"
+test -f "${PREFIX}/lib/libpythia8${SHLIB_EXT}"
 test -f "${PREFIX}/lib/libpythia8lhapdf6.so"
 test -f "${PREFIX}/share/Pythia8/examples/Makefile"
-echo "# test -f ${PREFIX}/share/Pythia8/examples/Makefile.inc"
 test -f "${PREFIX}/share/Pythia8/examples/Makefile.inc"
 
 cat ${PREFIX}/share/Pythia8/examples/Makefile.inc
 
 #
 echo -e "\n# Check pythia8-config CLI API and flags return expected values"
-echo -e "# pythia8-config --help\n"
 pythia8-config --help
 
-echo -e "\n# pythia8-config --cxxflags: $(pythia8-config --cxxflags)"
+pythia8-config --cxxflags
 
-echo -e "\n# pythia8-config --ldflags: $(pythia8-config --ldflags)"
+pythia8-config --ldflags
 
 echo ""
 _with_lhapdf6=$(pythia8-config --with-lhapdf6)

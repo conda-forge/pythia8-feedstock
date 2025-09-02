@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: http://home.thep.lu.se/~torbjorn/{{ name }}/pythia{{ version|replace('.', '')  }}.tgz
+  url: http://home.thep.lu.se/~torbjorn/{{ name }}/pythia{{ version|replace('.', '') }}.tgz
   sha256: 51382768eb9aafb97870dca1909516422297b64ef6a6b94659259b3e4afa7f06
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=root

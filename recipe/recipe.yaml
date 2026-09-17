@@ -93,6 +93,8 @@ tests:
         - examples/ttbar.lhe
         - examples/ttbar2.lhe
         - examples/wbj_lhef3.lhe
+      recipe:
+        - run_test.sh
     requirements:
       run:
         - cxx-compiler
@@ -102,7 +104,7 @@ tests:
         - hepmc3
         - make
         - sed
-    script: bash ${RECIPE_DIR}/run_test.sh
+    script: bash run_test.sh
 
 about:
   license: GPL-2.0-only

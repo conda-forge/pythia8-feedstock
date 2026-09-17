@@ -58,11 +58,14 @@ tests:
         - pythia8-config
       lib:
         - pythia8
-        - pythia8lhapdf6
       include:
         - Pythia8/Pythia.h
       files:
         exists:
+          # pythia8 gives its plugin libraries a .so suffix on every
+          # platform, so the lib: shorthand does not match them on macOS
+          # where it looks for .dylib.
+          - lib/libpythia8lhapdf6.so
           - share/Pythia8/examples/Makefile
           - share/Pythia8/examples/Makefile.inc
         not_exists:

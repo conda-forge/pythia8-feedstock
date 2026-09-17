@@ -19,8 +19,6 @@ build:
   # c.f. https://github.com/conda-forge/microarch-level-feedstock/issues/5
   number: ${{ build + 100 * (microarch_level | default("1") | int) if unix and x86_64 else build }}
   skip: win
-  dynamic_linking:
-    overlinking_behavior: error
 
 requirements:
   build:

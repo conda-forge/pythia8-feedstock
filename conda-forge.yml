@@ -1,6 +1,7 @@
 bot:
   abi_migration_branches:
-  - 8.3xx
+  # Kept because mg5amcnlo-pythia8-interface builds a variant against
+  # `pythia8 8.311.*`; this is an exact-version pin, not an ABI boundary.
   - '8.311'
   automerge: true
 build_platform:

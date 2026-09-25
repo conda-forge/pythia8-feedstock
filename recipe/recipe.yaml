@@ -41,6 +41,7 @@ requirements:
     - pybind11
     - lhapdf
     - fastjet-cxx
+    - fastjet-cxx-devel
     - hepmc2
     - hepmc3
     # zlib controlled through https://github.com/conda-forge/conda-forge-pinning-feedstock/
@@ -102,6 +103,7 @@ tests:
         - cxx-compiler
         - lhapdf >=6.2
         - fastjet-cxx
+        - fastjet-cxx-devel
         - hepmc2
         - hepmc3
         - make

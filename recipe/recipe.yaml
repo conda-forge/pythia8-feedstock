@@ -48,6 +48,7 @@ requirements:
     - zlib
   run:
     - python
+    - fastjet-cxx-devel
     # zlib needed to be compatible with cxx-compiler
     - zlib
   run_exports:

@@ -112,7 +112,7 @@ make clean
 lhapdf install cteq6l1 &> /dev/null
 
 "$CXX" main161.cc -o main161 $CXXFLAGS $LDFLAGS -lpythia8 -lfastjet
-./main161 main161.cmnd w+_production_lhc_0.lhe histout161.dat &> main161_output.txt || ./main161 main161.cmnd w+_production_lhc_0.lhe histout161.dat
+./main161 -c main161.cmnd -i w+_production_lhc_0.lhe -o histout161.dat &> main161_output.txt || ./main161 main161.cmnd w+_production_lhc_0.lhe histout161.dat
 
 echo -e "\n# Test example main201 that uses the LHAPDF library extension"
 make clean
@@ -138,15 +138,15 @@ echo -e "\n# Test example that use the HepMC2 and HepMC3 extensions"
 test -f main131.hepmc
 
 "$CXX" main132.cc -o main132 $(pythia8-config --cxxflags --ldflags) -lpythia8 -lHepMC3
-./main132 main132.cmnd main132.hepmc &> main132_output.txt || ./main132 main132.cmnd main132.hepmc
+./main132 -c main132.cmnd -o main132.hepmc &> main132_output.txt || ./main132 main132.cmnd main132.hepmc
 test -f main132.hepmc
 
 "$CXX" main133.cc -o main133 $(pythia8-config --cxxflags --ldflags) -lpythia8 -lHepMC3
-./main133 main133.cmnd main133.hepmc &> main133_output.txt || ./main133 main133.cmnd main133.hepmc
+./main133 -c main133.cmnd -o main133.hepmc &> main133_output.txt || ./main133 main133.cmnd main133.hepmc
 test -f main133.hepmc
 
 "$CXX" main134.cc -o main134 $(pythia8-config --cxxflags --ldflags) -lpythia8 -lHepMC3
-./main134 main134.cmnd main134.hepmc &> main134_output.txt || ./main134 main134.cmnd main134.hepmc
+./main134 -c main134.cmnd -o main134.hepmc &> main134_output.txt || ./main134 main134.cmnd main134.hepmc
 test -f main134.hepmc
 
 "$CXX" main135.cc -o main135 $(pythia8-config --cxxflags --ldflags) -lpythia8 -lHepMC3

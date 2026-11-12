@@ -2,6 +2,11 @@
 
 set -ex
 
+# Check the environment variables set through etc/conda/env_vars.d
+test "${PYTHIA8}" = "${PREFIX}"
+test "${PYTHIA8_DIR}" = "${PREFIX}"
+test "${PYTHIA8DATA}" = "${PREFIX}/share/Pythia8/xmldoc"
+
 cat ${PREFIX}/share/Pythia8/examples/Makefile.inc
 
 pythia8-config --help

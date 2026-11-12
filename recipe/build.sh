@@ -64,13 +64,12 @@ else
     ln -s "${PREFIX}/lib/pythia8.so" "${SP_DIR}/"
 fi
 
-# Add the post activate/deactivate scripts
-mkdir -p "${PREFIX}/etc/conda/activate.d"
-cp "${RECIPE_DIR}/activate.sh" "${PREFIX}/etc/conda/activate.d/activate-pythia8.sh"
-cp "${RECIPE_DIR}/activate.csh" "${PREFIX}/etc/conda/activate.d/activate-pythia8.csh"
-cp "${RECIPE_DIR}/activate.fish" "${PREFIX}/etc/conda/activate.d/activate-pythia8.fish"
-
-mkdir -p "${PREFIX}/etc/conda/deactivate.d"
-cp "${RECIPE_DIR}/deactivate.sh" "${PREFIX}/etc/conda/deactivate.d/deactivate-pythia8.sh"
-cp "${RECIPE_DIR}/deactivate.csh" "${PREFIX}/etc/conda/deactivate.d/deactivate-pythia8.csh"
-cp "${RECIPE_DIR}/deactivate.fish" "${PREFIX}/etc/conda/deactivate.d/deactivate-pythia8.fish"
+# Set environment variables on activation
+mkdir -p "${PREFIX}/etc/conda/env_vars.d"
+cat > "${PREFIX}/etc/conda/env_vars.d/${PKG_NAME}.json" << EOF
+{
+  "PYTHIA8": "${PREFIX}",
+  "PYTHIA8_DIR": "${PREFIX}",
+  "PYTHIA8DATA": "${PREFIX}/share/Pythia8/xmldoc"
+}
+EOF
